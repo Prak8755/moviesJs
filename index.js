@@ -202,6 +202,32 @@ btnClose.addEventListener('click',function(){
 })
 
 
+//working with Lazy loading images 
+const lazyImg=document.querySelectorAll('img[data-src]');
+
+function handleLazy(entries, observer){
+const [entry]=entries;
+
+if(!entry.isIntersecting) return ;
+entry.target.src=entry.target.dataset.src;
+
+entry.target.addEventListener('load',function(){
+  entry.target.classList.remove('lazy-img')
+})
+
+observer.unobserve(entry.target)
+}
+
+const lazyObserve=new IntersectionObserver(handleLazy,{
+  root:null,
+  threshold:0,
+  rootMargin:'200px'
+});
+
+lazyImg.forEach(img=>{
+  lazyObserve.observe(img)
+})
+
 
 
 

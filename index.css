@@ -94,6 +94,10 @@ align-items: center;
 justify-content: center;
 
 }
+
+.lazy-img{
+    filter: blur(20px);
+}
 .upcomming-flex{
     margin-top:2rem;
 }
