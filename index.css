@@ -1,0 +1,250 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.md-navList{
+    cursor: pointer;
+}
+.sticky{
+    position: fixed;
+    top:0px;
+    transform: scale(101%);
+    background-color: black;
+    color:white;
+    transition-duration:3s ;
+    z-index:100;
+}
+.section{
+   transition-duration:1s ;
+}
+.color{
+    color:greenyellow;
+}
+.navBarLogo>img{
+    width: 5rem;
+}
+.md-nav-link{
+    text-decoration: none;
+    font-size: 1.1rem;
+    color:black;
+    font-weight: 600;
+}
+.modalShow{
+    position:fixed;
+    top:50%;
+    left:50%;
+    background-color: white;
+    max-width: 50rem;
+    transform: translate(-50% ,-50%);
+    z-index: 1000;
+}
+.btn--close-modal{
+    padding: 0.2rem 3rem;
+    background-color: coral;
+}
+  
+.overlay{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0,0,0,0.5);
+    position:fixed;
+    top:0px;
+    left:0px;
+    z-index: 100;
+    backdrop-filter: blur(4px);
+    transition: all 1s;
+}
+.hidden{
+    display: none;
+}
+.header{
+    width: 100%;
+    padding:0rem 2rem;
+    background-color: white;
+}
+.md-navBar{
+    display: flex;  
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.md-navList{
+    display: flex;  
+    align-items: center;
+ gap:2rem;
+ list-style-type: none;
+}
+.btnScroll{
+    margin-top: 3rem;
+}
+.para{
+    text-align: justify;
+}
+.home{
+padding: 6rem;
+}
+
+.home,.upcomming-flex{
+    display: flex;
+gap:1rem;
+padding: 2rem;
+align-items: center;
+justify-content: center;
+
+}
+.upcomming-flex{
+    margin-top:2rem;
+}
+.upcomming-2 {
+    flex-direction: row-reverse;
+}
+.left,.right{
+    width: 50%;
+}
+.right>img{
+    width: 100%;;
+}
+.left>img{
+    width: 100%;;
+}
+.right>h1{
+    text-align: center;
+}
+
+/* Trending Movies */
+
+.Trending-movies{
+    margin-top:3rem;
+    padding: 2rem;
+}
+.Trending-movies>h1,p{
+text-align: center;
+}
+
+.movies-btns{
+margin-top:4rem;
+display: flex;
+justify-content: center;
+align-items: center;
+gap:2rem;
+
+}
+.btn{
+    padding:1rem 3rem;
+    background-color: coral;
+    border-radius: 1rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: whitesmoke;
+}
+.btn-active{
+transform: translateY(-40%);
+transition-duration: 1s;
+background-color:deepskyblue;
+}
+
+.movies-cards{
+    margin: auto;
+    width: 70%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   padding: 1rem;
+  
+}
+.action-movies,.horror-movies,.comedy-movies{
+    display: flex;
+    overflow-x:scroll ;
+}
+.cards-inactive{
+    display: none;
+}
+.img{
+    width:30%;
+    margin:1rem;
+}
+
+.section-hidden{
+    opacity:0;
+    transform: translateY(9rem);
+
+}
+.btnToggle{
+    font-size: 1rem;
+    font-weight: 400;
+    color:coral;
+}
+.heading>h1{
+text-align: center;
+
+}
+
+
+
+
+@media only  screen and (max-width:768px) {
+    .md-navList{
+        display: none;
+    }
+    .sm-nav{
+        background-color: black;
+      color:white;
+        padding:2rem;
+        position: absolute;
+        top:0%;
+        left: 0;
+        width: 100%;
+    }
+    .sm-nav__links{
+        display: flex;
+        flex-direction: column;
+        gap:1rem;
+        list-style: none;
+    }
+    .sm-nav-link{
+        text-decoration: none;
+        color:white;
+    }
+    .btnCloseNav{
+        margin-top: 0.3rem;
+        padding: 0.2rem 1rem;
+        background-color: crimson;
+    }
+    .home{
+        padding:5rem 1rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .home>.left{
+        width:100%;
+    }
+    .home>.left>.p{
+        font-size: 10px;;
+    }
+    .home>.right{
+        width:100%;
+    }
+    .upcomming{
+        margin-top:8rem;
+    }
+    .btn{
+        padding:0.2rem 0.8rem;
+
+    }
+    .movies-cards{
+        width:100%;
+    }
+}
+
+@media only screen and (min-width:768px){
+  .btnToggle{
+    display: none;
+   
+  }
+  .sm-nav{
+    display: none;
+  }
+}
