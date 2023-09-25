@@ -31,6 +31,7 @@
     font-weight: 600;
 }
 .modalShow{
+
     position:fixed;
     top:50%;
     left:50%;
@@ -38,6 +39,14 @@
     max-width: 50rem;
     transform: translate(-50% ,-50%);
     z-index: 1000;
+    padding: 2rem;
+}
+.form-flex{
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+    align-items: center;
+    justify-self: center;
 }
 .btn--close-modal{
     padding: 0.2rem 3rem;
@@ -83,13 +92,13 @@
     text-align: justify;
 }
 .home{
-padding: 6rem;
+padding: 10rem;
 }
 
 .home,.upcomming-flex{
     display: flex;
 gap:1rem;
-padding: 2rem;
+
 align-items: center;
 justify-content: center;
 
@@ -184,17 +193,105 @@ background-color:deepskyblue;
 text-align: center;
 
 }
+.slider-btns{
+    margin-top: 2rem;
+}
+/* Slider */
+.slider {
+    width: 60rem;
+    height: 30rem;
+    margin:auto;
+    position: relative;
+  padding: 2rem;
+  border:1px solid green;
+    /* IN THE END */
+ overflow: hidden;
+  }
 
+.slide {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  /* THIS creates the animation! */
+  transition: transform 1s;
+}
 
+.slide > img {
+    /* Only for images that have different size than slide */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .dots-div{
+    margin-top:2rem;
+    display: flex;
+    align-items: center;
+    gap:1rem;
+    width:40%;
+    margin: auto;
+  }
+  .dots{
+    border-radius: 100%;
+    height: 20px;
+    width: 20px;
+    background-color: rgb(181, 186, 186);
+    cursor: pointer;
+    outline: none;
+    content: none;
+    border:none;
+  }
+  .dot-active{
+    background-color: black;
+  }
 
+  .footer{
+    margin-top:2rem;
+  }
+  .btn--open-modal{
+    text-align: center;
+  }
 
+.footer-list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    list-style: none;
+    gap:2rem;
+ }
+ 
+@media only screen and (max-width:1000px) {
+    .home{
+        padding:5rem 1rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    } 
+    .home>.left{
+        width:100%;
+    }
+    .home>.left>.p{
+        font-size: 10px;;
+    }
+    .home>.right{
+        width:100%;
+    }
+    .upcomming{
+        margin-top:15rem;
+    }
+}
 @media only  screen and (max-width:768px) {
     .md-navList{
         display: none;
     }
+    .slider{
+        width: 20rem;
+        height: 20rem;
+    }
     .sm-nav{
         background-color: black;
-      color:white;
+       color:white;
         padding:2rem;
         position: absolute;
         top:0%;

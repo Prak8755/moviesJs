@@ -4,7 +4,6 @@ const overlay = document.querySelector(".overlay");
 const modal = document.querySelector(".modalShow");
 
 
-
 //working with opening form and closing form 
 function openModal() {
   overlay.classList.remove("hidden");
@@ -157,7 +156,6 @@ else{
 const main=document.querySelector('.main');
 const navHeight=navBar.getBoundingClientRect().height;
 
-
 const headerObserver=new IntersectionObserver(stickyNav,{
   root:null,
   threshold:0,
@@ -201,7 +199,6 @@ btnClose.addEventListener('click',function(){
   smNav.classList.add('hidden')
 })
 
-
 //working with Lazy loading images 
 const lazyImg=document.querySelectorAll('img[data-src]');
 
@@ -217,7 +214,6 @@ entry.target.addEventListener('load',function(){
 
 observer.unobserve(entry.target)
 }
-
 const lazyObserve=new IntersectionObserver(handleLazy,{
   root:null,
   threshold:0,
@@ -228,6 +224,101 @@ lazyImg.forEach(img=>{
   lazyObserve.observe(img)
 })
 
+
+//working with slider 
+const slides=document.querySelectorAll('.slide');
+const btnNext=document.querySelector('.btn-next');
+const btnPrev=document.querySelector('.btn-prev');
+
+let curSlide=0;
+let maxSlide=slides.length;
+
+function handleSlide(curSlide){
+  slides.forEach((s,i)=>s.style.transform=`translateX(${(i-curSlide)*100}%)`)
+
+}
+
+function nextBtn(e){
+  if(curSlide===maxSlide-1){
+    curSlide=0
+  }
+  else{
+    curSlide++;
+    
+  }
+  handleSlide(curSlide)
+  activeDots(curSlide)
+  }
+
+  function prevBtn(){
+    if(curSlide===maxSlide-1){
+      curSlide=0
+    }
+    else{
+      curSlide++;
+    }
+   
+  handleSlide(curSlide);
+  activeDots(curSlide)
+  };
+
+
+btnNext.addEventListener('click',nextBtn)
+
+btnPrev.addEventListener('click',prevBtn)
+
+//now creating Dots for slider 
+
+const dotsDiv=document.querySelector('.dots-div');
+
+function createDots(slide){
+slides.forEach((_,i)=>{
+  dotsDiv.insertAdjacentHTML('beforeend',`<div class='dots' data-slide='${i}'><div>`)
+})
+const currentDot=document.querySelector(`.dots[data-slide="${slide}"]`);
+currentDot.classList.add('dot-active');
+}
+
+function activeDots(slide){
+
+  const dots=document.querySelectorAll('.dots');
+
+  dots.forEach(dot=>dot.classList.remove('dot-active'));
+
+  const currentDot=document.querySelector(`.dots[data-slide="${slide}"]`);
+currentDot.classList.add('dot-active');
+}
+//attaching event handlers on Keyboard vor dots 
+
+document.addEventListener('keydown',function(e){
+ if(e.key==='ArrowRight'){
+nextBtn()
+ }
+ if(e.key==='ArrowLeft'){
+prevBtn();
+ }
+})
+
+
+//attaching click event on dots for slider
+function handleDots(slide){
+dotsDiv.addEventListener('click',function(e){
+  if(e.target.classList.contains('dots')){
+   const dotActive=e.target.dataset.slide;
+   activeDots(dotActive)
+handleSlide(dotActive)
+  }
+})
+
+}
+
+function init(){
+  handleDots();
+  createDots(0);
+  handleDots();
+  handleSlide(0);
+}
+init();
 
 
 
